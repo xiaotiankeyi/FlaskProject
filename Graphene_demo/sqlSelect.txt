@@ -1,0 +1,83 @@
+1、别名应用,同一类数据,返回多个通过别名实现,h1,h2
+{
+  h1:human(id:"1002") {
+  id
+  name
+  appearsIn
+	}
+	h2:human(id:"1003") {
+  id
+  name
+  appearsIn
+	}
+}
+
+2、字段的复用,省代码量
+{
+  h1:human(id:"1002") {
+		...info
+	}
+	h2:human(id:"1003") {
+		... info
+	}
+}
+
+fragment info on Human{
+  id
+  name
+  appearsIn
+}
+
+3、获取接口特有属性
+{
+  hero(episode:JEDI) {
+    id
+    name
+    friends {
+      id
+    }
+    appearsIn
+    ... on Droid{
+      primaryFunction
+    }
+  }
+}
+
+4、给查询定义名称,q1,q2
+query q1{
+  hero(episode:JEDI) {
+    id
+    name
+    friends {
+      id
+    }
+    appearsIn
+    ... on Droid{
+      primaryFunction
+    }
+  }
+}
+
+query q2{
+  hero(episode:EMPIRE) {
+    id
+    name
+    friends {
+      id
+    }
+    appearsIn
+    ... on Droid{
+      primaryFunction
+    }
+  }
+}
+
+5、实现动态查询
+query queryC($id:Episode){
+  hero(episode:$id){
+    id
+    name
+  }
+}
+
+{"episode":"JEDI"}

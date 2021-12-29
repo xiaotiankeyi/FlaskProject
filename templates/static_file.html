@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加载静态文件js, css, img</title>
+    <!--加载css-->
+    <link href="{{ url_for('static', filename='css/test_css.css') }}" rel="stylesheet" type="text/css">
+    <!--加载js文件-->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/test_js.js') }}"></script>
+</head>
+<body>
+    <p>测试通过link外部导入css样式</p>
+    <button onclick="f()">点击按钮</button>
+    <hr>
+    <!--加载jpg图片-->
+    <img src="{{ url_for('static', filename='images/222.jpg') }}">
+</body>
+</html>

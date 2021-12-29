@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jinja2过滤器及自定义过滤器</title>
+</head>
+<body>
+    <h4>default过滤器的使用</h4>
+    <p>个性签名过滤器:{{ signature|default('此人很懒,暂无签名', boolean=True)}}</p>
+    <p>个性签名过滤器:{{ signature or '此人很懒,暂无签名' }}</p>
+
+    <p>取第一个值过滤:{{ persons|first }}</p>
+    <p>取最后一个值过滤:{{ persons|last }}</p>
+    <p>取第一个值过滤:{{ persons|length }}</p>
+
+    {% if gender|int == 1 %}
+        <p>性别: 男</p>
+    {% else %}
+        <p>性别: 女</p>
+    {% endif %}
+
+    <p>替换感言: {{ testimonials|replace('他妈的','TMD') }}</p>
+    <p>截取长文本: {{ text|truncate(length=10, killwords=False) }}</p>
+    <p>自定义过滤器引用:{{ custom|customFilter }}</p>
+    <p>自定义时间过滤器引用: {{ time|timeFilter }}</p>
+</body>
+</html>

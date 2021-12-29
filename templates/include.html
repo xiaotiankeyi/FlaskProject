@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>include标签的使用</title>
+    <style>
+        html body{
+            margin: 0;
+            height: 100px;
+            width: 100%;
+        }
+        main>div{
+            width: 100%;
+            height: 500px;
+            border: 1px solid red;
+            background-color: green;
+            max-height: 1000px;
+        }
+    </style>
+</head>
+<body>
+    {% include "include/include_file_top.html" %}
+    <main>
+        <div></div>
+    </main>
+    {% include "include/include_file_button.html" %}
+</body>
+</html>

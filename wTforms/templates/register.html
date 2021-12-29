@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+</head>
+<body>
+    <h3>WTForms组件进行表单验证</h3>
+    <form action="{{ url_for('register') }}" method="post">
+        <p>用户名:<input type="text" name="username" value=""></p>
+        <p>密码:<input type="password" name="pwd" value=""></p>
+        <p>确认密码<input type="password" name="confirmPwd"></p>
+        <p>邮箱:<input type="email" name="email" value=""></p>
+        <p>验证码:<input type="text" name="code" value=""><span style="margin-left: 10px">{{ sessionObj.get('code') }}</span></p>
+        <p><input type="submit" value="提交"></p>
+    </form>
+</body>
+</html>

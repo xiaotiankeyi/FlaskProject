@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>set语句和with语句的定义和使用</title>
+</head>
+<body>
+    <main>
+        <p>在set语句定义之前调用:{{ name }}</p>
+            {% set name='jakc' %}
+        <p>在set语句定义之后调用-名字: {{ name }}</p>
+
+        {% with age=23 %}
+            <p>在with语句中调用:{{ age }}</p>
+            <p>在with语句中调用外部的set语句:{{ name }}</p>
+            {% set address='广州' %}
+        {% endwith %}
+            <p>超出with范围后再调用with语句:{{ age }}</p>
+            <p>在外部调用嵌套在with语句中的set语句:{{ address }}</p>
+    </main>
+</body>
+</html>

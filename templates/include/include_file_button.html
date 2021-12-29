@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>共享底部页面,include导入使用</title>
+    <style>
+        footer{
+            display: inline-block;
+            text-align: center;
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+        }
+        footer nav{
+            text-align: center;
+        }
+        nav>a{
+            margin-left: 20px;
+            font-size: 15px;
+            text-decoration: underline;
+        }
+        nav>a:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <footer>
+        <p>W3School 简体中文版提供的内容仅用于培训和测试，不保证内容的正确性。
+            通过使用本站内容随之而来的风险与本站无关。版权所有，保留一切权利。
+        </p>
+        <nav>
+            <a>使用条款</a>
+            <a>隐私条款</a>
+            <a>技术支持:赢科</a>
+            <a>蒙ICP备06004630号</a>
+        </nav>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jinja2模板之for循环语句</title>
+</head>
+<body>
+    <h3>for循环遍历之字典</h3>
+    {% for key, val in info.items() %}
+        <ul><li>{{ key }}:{{ val }}</li></ul>
+    {% endfor %}
+
+    <hr>
+    <h3>for循环遍历之列表</h3>
+    {% for msg_v in msg %}
+        <ul><li>{{ msg_v }}</li></ul>
+    {% endfor %}
+
+    <hr>
+    <h3>for循环遍历之列表里面的字典,嵌套使用,value为数据</h3>
+    <table border="1" cellpadding="5" cellspacing="0" width="50%" align="left">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>名字</th>
+                <th>年龄</th>
+                <th>地址</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for list_dict in list_dict %}
+                {% if loop.first %}
+                    <tr style="background-color: indigo">
+                {% elif loop.last %}
+                    <tr style="background-color: blue">
+                {% else %}
+                    <tr style="background-color: green">
+                {% endif %}
+                        <td align="center">{{ loop.index0 + 1 }}</td>
+                        {% for val in list_dict.values() %}
+                            <td align="center">{{ val }}</td>
+                        {% endfor %}
+                    </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3 style="margin-top: 23%">嵌套循环之实现九九乘法表</h3>
+    <table border="1">
+        <tbody>
+            {% for i in range(1,10) %}
+                <tr>
+                    {% for j in range(1, i + 1) %}
+                        <td>{{ i }}*{{ j }}={{ i * j }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

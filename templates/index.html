@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <p>使用转参技巧</p>
+    <ul>
+        <li>{{ name }}</li>
+        <li>{{ age }}</li>
+        <li>{{ gender }}</li>
+        <li>{{ address }}</li>
+        <li>{{ birthday }}</li>
+    </ul>
+    <hr>
+    <p>不使用转参技巧</p>
+    <ul>
+        <li>{{ dict.info.height }}</li>
+        <li>{{ dict.info.weight }}</li>
+    </ul>
+
+    <hr>
+    <p>模板中URL_for的基本使用</p>
+    <a href="/login/">登录</a><br>
+    <a href={{ url_for('login') }}>URL_for登录</a>
+
+    <hr>
+    <p>模板中URL_for的基本使用之路径传参</p>
+    <a href={{ url_for('login2', name='jack') }}>URL_for登录之路径传参</a>
+
+    <hr>
+    <p>模板中URL_for的基本使用之字符串传参</p>
+    <a href={{ url_for('login2', name='jack', age=23,address='广东') }}>URL_for登录之字符串传参</a>
+</body>
+</html>

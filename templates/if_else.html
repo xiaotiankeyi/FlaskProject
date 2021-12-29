@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jinja2控制语句</title>
+</head>
+<body>
+    <h3>jinja2模板控制语句</h3>
+    <p style="color: blue">双分支判断</p>
+    {% if age >= 30 %}
+        <span>年龄大于30岁</span>
+    {% else %}
+        <span>年龄小于30岁</span>
+    {% endif %}
+
+    <hr>
+    <p style="color: red">多分支判断</p>
+    {% if grade >= 60 and grade <= 70 %}
+        <span>{{ grade }}成绩等级是: C</span>
+    {% elif grade >= 70 and grade <= 80 %}
+        <span>{{ grade }}成绩等级是: B</span>
+    {% elif grade >= 80 and grade <= 90 %}
+        <span>{{ grade }}成绩等级是: A</span>
+    {% else %}
+        <span>{{ grade }}成绩等级是: D</span>
+    {% endif %}
+
+</body>
+</html>

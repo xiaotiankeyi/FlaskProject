@@ -1,0 +1,4 @@
+<!--定义宏-->
+    {% macro new_inp(username, type='text', value="") %}
+        <input type="{{ type }}" name="{{ username }}" value="{{ value }}">
+    {% endmacro %}

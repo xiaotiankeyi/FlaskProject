@@ -1,0 +1,25 @@
+{% extends "parent/parent_model.html" %}
+
+    {% block title %}
+        我是子模板,我替换了父模板的title
+    {% endblock %}
+    
+    {% block header %}
+        {{ super() }}
+    {% endblock %}
+
+    {% block main %}
+        <script type="text/javascript" src="{{ url_for('static', filename='js/test_js.js') }}"></script>
+        <style>
+            .p-tag{
+                color: darkorange;
+            }
+        </style>
+        <p class="p-tag">不继承父模板的内容,子模板自己定义内容</p>
+        <button onclick="f()">测试在子模板中导入js点击</button>
+    {% endblock %}
+
+    {% block footer %}
+        {{ super() }}
+    {% endblock %}
+
