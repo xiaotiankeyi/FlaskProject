@@ -10,8 +10,6 @@ from flask_migrate import Migrate
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
 db = SQLAlchemy(app)
-# 创建migrate对象
-Migrate(app=app, db=db)
 
 
 # 注册蓝图
@@ -26,6 +24,10 @@ def index():
     # return "<p>hello world<p>"
     return render_template("page.html")
 
+# 创建migrate对象
+from migrate_demo import application
+Migrate(app=app, db=db)
 # print('被调用')
+
 if __name__ == "__main__":
     app.run()
