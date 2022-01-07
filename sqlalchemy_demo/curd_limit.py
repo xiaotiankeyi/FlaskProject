@@ -34,5 +34,7 @@ def select_limit():
         val = res.query(NewAuthor).slice(6, 9).all()
         print(val)
 
+        # 分页方式三,分页器
+        db = res.query(NewAuthor).paginate(10, 6)
 if __name__ == "__main__":
     select_limit()

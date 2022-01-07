@@ -58,6 +58,8 @@ def one_select():
     val = Author.query.first()
     print(val)
 
+    val = Author.query.paginate(page=2, per_page=10, error_out=False)
+
 
 def many_select():
     """多表查询需要session对象"""
