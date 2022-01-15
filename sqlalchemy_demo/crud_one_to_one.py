@@ -42,7 +42,7 @@ class NewAuthorInfo(Base):
 
     # 创建用户新闻作者表和新闻作者信息表的一对一外键关系
     Author_id = Column(Integer, ForeignKey("newAuthor.id", ondelete="CASCADE"))
-    # 创建反向查询两种方式,跟作者表是一对一关系
+    # 创建反向查询两种方式,跟作者表是一对一关系,关键在于控制uselist=False
     # newAuthor = relationship("NewAuthor", backref="newAuthorInfo", uselist=False)
     newAuthor = relationship("NewAuthor", backref=backref("newAuthorInfo", uselist=False))
 

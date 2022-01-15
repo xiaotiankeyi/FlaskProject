@@ -9,7 +9,6 @@ from sqlalchemy_demo.db_tool import Base
 
 """
 表关系存在三种, 多对多，新闻标签和新闻创建多对多关系
-    
     # 默认删除策略 ondelete = 'RESTRICT'
     # 级联删除策略 ondelete = 'CASCADE'
     # 设置为空 ondelete = 'set null'
@@ -22,7 +21,7 @@ news_tag = Table(
     Base.metadata,
     # 两个字段都加上primary_key=True后,会自动的组成复合组件,保证数据唯一性
     Column('new_id', Integer, ForeignKey("newWorks.id"), primary_key=True),
-    Column('tag_id', Integer, ForeignKey("newTag.id"),primary_key=True),
+    Column('tag_id', Integer, ForeignKey("newTag.id"), primary_key=True),
 
 )
 
@@ -40,7 +39,7 @@ class NewWorks(Base):
     alterTime = Column(DATETIME, onupdate=datetime.now, default=datetime.now)
 
     # 创建反向关联,需要传入secondary=news_tag参数
-    tagsInfo = relationship("NewTag", backref="NewWorks",secondary=news_tag)
+    tagsInfo = relationship("NewTag", backref="NewWorks", secondary=news_tag)
 
     def __repr__(self):
         return f"id:{self.id}, context:{self.context}, author:{self.author},tags:{self.tags}"

@@ -48,8 +48,8 @@ class NewWorks(Base):
     # 创建一对多外键关系,表示一篇新闻有多个作者
     Author_id = Column(Integer, ForeignKey("newAuthor.id"))
 
-    # 创建反向查找,当需要通过查询主表来对子表进行排序时添加order_by=排序字段来实现
-    authorInfo = relationship("NewAuthor", backref=backref("NewWorks", order_by=length,lazy='dynamic'),
+    # 创建反向查找,当需要通过查询主表来对子表进行排序时添加order_by=排序字段来实现,lazy='dynamic'懒加载
+    authorInfo = relationship("NewAuthor", backref=backref("NewWorks", order_by=length, lazy='dynamic'),
                               cascade="save-update,delete,delete-orphan", single_parent=True)
 
     def __repr__(self):
@@ -70,7 +70,8 @@ def insert():
             context = "".join(i for i in random.sample(
                 """赵钱孙李周吴郑王冯陈褚卫蒋沈韩杨朱秦尤许金魏陶姜戚谢邹喻柏水窦章
                 云苏潘葛奚范彭郎鲁韦昌马苗凤花方俞任袁柳酆鲍史唐费廉岑薛雷贺倪汤""", random.randint(10, 20)))
-            newWorks = NewWorks(context=context, author=name, length=len(context))
+            newWorks = NewWorks(
+                context=context, author=name, length=len(context))
             author.NewWorks.append(newWorks)
         res.commit()
 

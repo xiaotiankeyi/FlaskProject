@@ -32,7 +32,7 @@ def find():
     """通过用户信息表反向查找出作者名称和所在出版社"""
     info = sessionObj.query(NewAuthorInfo).first()
     print('1、作者信息:', info)
-    print('2、作者：', info.newAuthor)
+    print('2、作者:', info.newAuthor)
     print('3、该作者所处出版社:', info.pressData)
 
     print("*" * 60)
